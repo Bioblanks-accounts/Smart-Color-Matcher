@@ -1,31 +1,87 @@
 # 🎯 Smart Color Matcher - Pantone TCX
 
-Sistema inteligente para encontrar cores Pantone TCX similares usando Delta E (CIE2000) e cores extraídas de fotos reais de tecidos.
+Intelligent system to find similar Pantone TCX colors using Delta E (CIE2000) and colors extracted from real fabric photos.
 
-## 🌐 Demo Online
+## 🌐 Live Demo
 
-🔗 **Acesse:** [https://bioblanks-accounts.github.io/Smart-Color-Matcher](https://bioblanks-accounts.github.io/Smart-Color-Matcher)
+🔗 **Access:** [https://bioblanks-accounts.github.io/Smart-Color-Matcher](https://bioblanks-accounts.github.io/Smart-Color-Matcher)
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🎨 **Busca por HEX**: Digite qualquer cor HEX e encontre o Pantone TCX mais similar
-- 📊 **Delta E (CIE2000)**: Algoritmo científico para medir similaridade visual
-- 🖼️ **Fotos Reais**: Compara com cor extraída da foto real do tecido (não apenas código oficial)
-- 📋 **Múltiplos Formatos**: RGB, HEX, LAB, CMYK para produção
-- 🎯 **Top 5 Matches**: Mostra os 5 melhores resultados ordenados por similaridade
-- 📸 **Visualização**: Previews de cor e dados completos
+- 🎨 **HEX Search**: Enter any HEX color and find the most similar Pantone TCX
+- 📊 **Delta E (CIE2000)**: Scientific algorithm to measure visual similarity
+- 🖼️ **Real Photos**: Compares with color extracted from real fabric photo (not just official code)
+- 📋 **Multiple Formats**: RGB, HEX, LAB, CMYK for production
+- 🎯 **Top 5 Matches**: Shows the 5 best results ordered by similarity
+- 📸 **Visualization**: Color previews and complete data
 
-## 🚀 Como Usar
+## 🚀 How to Use
 
-1. Digite o código HEX da cor (ex: `#bd2c27`)
-2. Clique em "Buscar Match"
-3. Veja os Top 5 resultados com dados completos
-4. Copie os valores necessários (Código, HEX, LAB, CMYK)
+1. Enter the HEX color code (e.g., `#bd2c27`)
+2. Click "Search Match"
+3. See the Top 5 results with complete data
+4. Copy the values you need (Code, HEX, LAB, CMYK)
 
-## 📄 Licença
+## 🔬 Technology
 
-Este projeto é para uso pessoal/profissional.
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Backend**: Python + Flask (optional)
+- **Algorithm**: Delta E CIE2000 for color comparison
+- **Data**: SQLite with 2,643 Pantone TCX colors
+
+## 📊 Example
+
+**Input:** `#bd2c27`
+
+**Output:**
+```
+🏆 Top 1: 18-1549 TCX - Valiant Poppy
+   Similarity: 98.5%
+   Delta E: 0.3 (imperceptible)
+   LAB: L*35.2 a*45.8 b*28.1
+   CMYK: C:0% M:77% Y:83% K:26%
+   [Color Preview]
+```
+
+## 🛠️ Local Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Bioblanks-accounts/Smart-Color-Matcher.git
+cd Smart-Color-Matcher
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Extract real colors from images (once)
+python3 extract_real_colors.py
+
+# Start Flask server
+python3 matcher_app.py
+```
+
+## 📁 Structure
+
+```
+├── matcher_app.py          # Flask server
+├── color_matcher.py        # Search logic
+├── extract_real_colors.py  # Color extraction
+├── build_static.py         # Generates static version
+├── templates/              # HTML templates
+├── static/                 # CSS/JS
+└── docs/                   # Static site (GitHub Pages)
+```
+
+## 📄 License
+
+This project is for personal/professional use.
+
+## 🙏 Credits
+
+- Pantone Colors: [Columbia Omni Studio](https://columbiaomnistudio.com)
+- Delta E Algorithm: CIE2000
+- Color conversions: colormath
 
 ---
 
-**Desenvolvido para garantir máxima fidelidade de cor na produção têxtil** 🎨
+**Developed to ensure maximum color fidelity in textile production** 🎨
