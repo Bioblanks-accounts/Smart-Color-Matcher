@@ -1,6 +1,6 @@
 /**
- * Smart Color Matcher - Versão Gratuita (sem imagens)
- * Mostra previews de cor e dados completos
+ * Smart Color Matcher - Free Version (no images)
+ * Shows color previews and complete data
  */
 
 let pantoneData = null;
@@ -14,22 +14,22 @@ const resultsGrid = document.getElementById('resultsGrid');
 const loading = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
 
-// Carrega dados
+// Load data
 window.addEventListener('DOMContentLoaded', async () => {
     loading.style.display = 'block';
-    loading.querySelector('p').textContent = 'Carregando dados...';
+    loading.querySelector('p').textContent = 'Loading data...';
     
     try {
         const response = await fetch('pantone_data.json');
-        if (!response.ok) throw new Error('Erro ao carregar dados');
+        if (!response.ok) throw new Error('Error loading data');
         
         pantoneData = await response.json();
-        console.log(`✅ ${pantoneData.length} cores carregadas`);
+        console.log(`✅ ${pantoneData.length} colors loaded`);
         
         loading.style.display = 'none';
     } catch (error) {
         loading.style.display = 'none';
-        showError(`Erro ao carregar dados: ${error.message}`);
+        showError(`Error loading data: ${error.message}`);
     }
 });
 
@@ -61,12 +61,12 @@ async function performSearch() {
     const hex = hexInput.value.trim();
     
     if (!hex || !/^#[0-9A-F]{6}$/i.test(hex)) {
-        showError('Por favor, insira um código HEX válido (ex: #bd2c27)');
+        showError('Please enter a valid HEX code (e.g., #bd2c27)');
         return;
     }
     
     if (!pantoneData) {
-        showError('Dados ainda não carregaram. Aguarde...');
+        showError('Data not loaded yet. Please wait...');
         return;
     }
     
@@ -80,7 +80,7 @@ async function performSearch() {
             const results = findSimilarColors(hex, useExtractedCheck.checked, 5);
             displayResults({ input_hex: hex, results });
         } catch (error) {
-            showError(`Erro: ${error.message}`);
+            showError(`Error: ${error.message}`);
         } finally {
             loading.style.display = 'none';
             searchBtn.disabled = false;
@@ -163,18 +163,18 @@ function displayResults(data) {
     resultsGrid.innerHTML = '';
     
     if (!data.results || data.results.length === 0) {
-        showError('Nenhuma cor similar encontrada');
+        showError('No similar colors found');
         return;
     }
     
-    // Card da cor de entrada
+    // Input color card
     const inputCard = document.createElement('div');
     inputCard.className = 'result-card';
     inputCard.style.border = '3px solid #667eea';
     inputCard.innerHTML = `
         <div class="result-header">
             <div>
-                <div style="font-size: 1.1em; font-weight: bold; color: #333;">Cor do Cliente</div>
+                <div style="font-size: 1.1em; font-weight: bold; color: #333;">Client Color</div>
                 <div style="font-family: 'Courier New', monospace; color: #666; margin-top: 5px;">${data.input_hex}</div>
             </div>
         </div>
@@ -182,7 +182,7 @@ function displayResults(data) {
     `;
     resultsGrid.appendChild(inputCard);
     
-    // Resultados
+    // Results
     data.results.forEach((result, index) => {
         const card = document.createElement('div');
         card.className = 'result-card';
@@ -195,16 +195,16 @@ function displayResults(data) {
         const cmykText = result.cmyk ? `C:${result.cmyk.c}% M:${result.cmyk.m}% Y:${result.cmyk.y}% K:${result.cmyk.k}%` : 'N/A';
         const rgbText = result.rgb ? `rgb(${result.rgb.r}, ${result.rgb.g}, ${result.rgb.b})` : 'N/A';
         
-        // Preview de cor grande ao invés de imagem
+        // Large color preview instead of image
         const colorPreviewHtml = `<div class="color-preview-only" style="background: ${result.hex};">
             ${result.hex}<br>
-            <span style="font-size: 0.8em; opacity: 0.9;">Preview da Cor</span>
+            <span style="font-size: 0.8em; opacity: 0.9;">Color Preview</span>
         </div>`;
         
-        // Link para imagem original se disponível
+        // Link to original image if available
         const originalLinkHtml = result.original_link ? `
             <a href="${result.original_link}" target="_blank" class="original-link-btn">
-                🔗 Ver imagem original
+                🔗 View original image
             </a>
         ` : '';
         
@@ -221,10 +221,10 @@ function displayResults(data) {
             ${originalLinkHtml}
             
             <div class="result-info">
-                <div class="info-row"><span class="info-label">Código TCX:</span><span class="info-value">${result.code}</span></div>
-                <div class="info-row"><span class="info-label">Nome:</span><span class="info-value">${result.name}</span></div>
-                <div class="info-row"><span class="info-label">HEX (extraído):</span><span class="info-value" style="background: ${result.hex}; color: ${getContrastColor(result.hex)}; padding: 2px 6px; border-radius: 3px;">${result.hex}</span></div>
-                ${result.visual_hex && result.visual_hex !== result.hex ? `<div class="info-row"><span class="info-label">HEX (oficial):</span><span class="info-value">${result.visual_hex}</span></div>` : ''}
+                <div class="info-row"><span class="info-label">TCX Code:</span><span class="info-value">${result.code}</span></div>
+                <div class="info-row"><span class="info-label">Name:</span><span class="info-value">${result.name}</span></div>
+                <div class="info-row"><span class="info-label">HEX (extracted):</span><span class="info-value" style="background: ${result.hex}; color: ${getContrastColor(result.hex)}; padding: 2px 6px; border-radius: 3px;">${result.hex}</span></div>
+                ${result.visual_hex && result.visual_hex !== result.hex ? `<div class="info-row"><span class="info-label">HEX (official):</span><span class="info-value">${result.visual_hex}</span></div>` : ''}
                 <div class="info-row"><span class="info-label">RGB:</span><span class="info-value">${rgbText}</span></div>
                 <div class="info-row"><span class="info-label">LAB:</span><span class="info-value">${labText}</span></div>
                 <div class="info-row"><span class="info-label">CMYK:</span><span class="info-value">${cmykText}</span></div>
@@ -232,7 +232,7 @@ function displayResults(data) {
             </div>
             <div class="delta-e-info">${getDeltaEExplanation(result.delta_e)}</div>
             <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
-                <button onclick="copyToClipboard('${result.code}')" class="copy-btn-small">📋 Código</button>
+                <button onclick="copyToClipboard('${result.code}')" class="copy-btn-small">📋 Code</button>
                 <button onclick="copyToClipboard('${result.hex}')" class="copy-btn-small">📋 HEX</button>
                 <button onclick="copyToClipboard('${labText}')" class="copy-btn-small">📋 LAB</button>
             </div>
@@ -244,11 +244,11 @@ function displayResults(data) {
 }
 
 function getDeltaEExplanation(deltaE) {
-    if (deltaE < 1) return '⭐ Diferença imperceptível ao olho humano';
-    if (deltaE < 3) return '✅ Muito similar - excelente match';
-    if (deltaE < 6) return '✓ Similar - boa correspondência';
-    if (deltaE < 12) return '⚠️ Diferença perceptível, mas ainda similar';
-    return '⚠️ Diferença significativa';
+    if (deltaE < 1) return '⭐ Imperceptible difference to the human eye';
+    if (deltaE < 3) return '✅ Very similar - excellent match';
+    if (deltaE < 6) return '✓ Similar - good match';
+    if (deltaE < 12) return '⚠️ Perceptible difference, but still similar';
+    return '⚠️ Significant difference';
 }
 
 function getContrastColor(hex) {
@@ -262,9 +262,9 @@ function getContrastColor(hex) {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert(`Copiado: ${text}`);
+        alert(`Copied: ${text}`);
     }).catch(err => {
-        console.error('Erro ao copiar:', err);
+        console.error('Error copying:', err);
     });
 }
 
