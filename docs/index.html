@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Color Matcher - Pantone TCX (Gratuito)</title>
+    <title>Smart Color Matcher - Pantone TCX (Free)</title>
     <link rel="stylesheet" href="static/css/matcher.css">
     <style>
         .color-preview-only {
@@ -39,13 +39,13 @@
     <div class="container">
         <header>
             <h1>🎯 Smart Color Matcher</h1>
-            <p class="subtitle">Encontre o Pantone TCX mais similar à sua cor usando Delta E (CIE2000)</p>
-            <p style="color: #666; font-size: 0.9em; margin-top: 10px;">✨ Versão gratuita - Dados completos de cor para produção</p>
+            <p class="subtitle">Find the most similar Pantone TCX color using Delta E (CIE2000)</p>
+            <p style="color: #666; font-size: 0.9em; margin-top: 10px;">✨ Free version - Complete color data for production</p>
         </header>
 
         <div class="input-section">
             <div class="input-group">
-                <label for="hexInput">Cor do Cliente (HEX):</label>
+                <label for="hexInput">Client Color (HEX):</label>
                 <div class="hex-input-wrapper">
                     <input 
                         type="text" 
@@ -56,24 +56,24 @@
                     >
                     <div id="colorPreview" class="color-preview-small"></div>
                 </div>
-                <button id="searchBtn" class="search-btn">🔍 Buscar Match</button>
+                <button id="searchBtn" class="search-btn">🔍 Search Match</button>
             </div>
             
             <div class="options">
                 <label>
                     <input type="checkbox" id="useExtracted" checked>
-                    Usar cor real extraída da imagem (recomendado)
+                    Use real color extracted from image (recommended)
                 </label>
             </div>
         </div>
 
         <div id="loading" class="loading" style="display: none;">
             <div class="spinner"></div>
-            <p>Calculando similaridades...</p>
+            <p>Calculating similarities...</p>
         </div>
 
         <div id="results" class="results-container" style="display: none;">
-            <h2>🎯 Resultados (ordenados por similaridade)</h2>
+            <h2>🎯 Results (ordered by similarity)</h2>
             <div id="resultsGrid" class="results-grid"></div>
         </div>
 
