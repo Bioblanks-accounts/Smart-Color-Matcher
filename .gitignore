@@ -35,7 +35,7 @@ pantone_images_test/
 
 # JSON (gerado, muito grande)
 pantone_visual_db.json
-pantone_data.json
+# docs/pantone_data.json - Incluído no git para versão gratuita
 
 # IDEs
 .vscode/
