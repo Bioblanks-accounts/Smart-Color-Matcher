@@ -1,0 +1,21 @@
+[build]
+  # Diretório de publicação (mesmo que GitHub Pages)
+  publish = "docs"
+  
+  # Comando de build (não necessário para site estático, mas pode ser útil)
+  # command = "echo 'No build needed'"
+
+# Redirecionamentos (opcional - para SPA se necessário)
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
+
+# Headers de segurança (opcional)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
