@@ -6,7 +6,7 @@
 
 ## 🚀 **New Version v2.0 - Complete Update**
 
-### 📅 **Update Date:** December 2024
+### 📅 **Update Date:** January 23, 2025
 
 This version brings a **complete transformation** of the application, with a modern interface, new advanced features, and important fixes.
 
@@ -267,7 +267,7 @@ Access: `https://bioblanks-accounts.github.io/Smart-Color-Matcher/`
 
 ## 📝 **Complete Changelog**
 
-### **v2.0.0 - December 2024**
+### **v2.0.0 - January 23, 2025**
 
 #### **✨ New Features**
 - Modern image upload component with drag & drop
