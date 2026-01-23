@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Color Matcher - Pantone TCX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/matcher.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="BIOBLANKS" style="height: 50px; margin-bottom: 20px;">
+            <h1>Smart Color Matcher</h1>
+            <p class="subtitle">Find the most similar Pantone TCX color using Delta E (CIE2000)</p>
+        </header>
+
+        <div class="input-section">
+            <!-- Tabs to choose between Image Upload or HEX -->
+            <div class="input-tabs">
+                <button class="tab-btn active" data-tab="image">Image Upload</button>
+                <button class="tab-btn" data-tab="hex">HEX Code</button>
+            </div>
+
+            <!-- Tab: Image Upload -->
+            <div id="imageTab" class="tab-content active">
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                
+                <!-- Empty State (No Image) -->
+                <div id="uploadArea" class="modern-upload-area">
+                    <div class="upload-icon-circle">
+                        <svg class="upload-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <div class="upload-text-content">
+                        <p class="upload-main-text">Click to select</p>
+                        <p class="upload-sub-text">or drag and drop file here</p>
+                    </div>
+                </div>
+                
+                <!-- Filled State (With Image) -->
+                <div id="imagePreview" class="modern-image-preview" style="display: none;">
+                    <div class="preview-container">
+                        <img id="previewImg" src="" alt="Preview" class="preview-img">
+                        <div class="preview-overlay">
+                            <div class="preview-buttons">
+                                <button type="button" id="reuploadBtn" class="preview-btn preview-btn-secondary" title="Upload new image">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                                <button type="button" id="removeBtn" class="preview-btn preview-btn-danger" title="Remove image">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="file-info-bar">
+                        <span id="fileName" class="file-name-text"></span>
+                        <button type="button" id="fileRemoveBtn" class="file-remove-x" title="Remove">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="extracted-color-card">
+                        <div class="extracted-color-label">Extracted Dominant Color:</div>
+                        <div class="extracted-color-display">
+                            <div id="extractedColorBox" class="extracted-color-box"></div>
+                            <div id="extractedColorHex" class="extracted-color-hex"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="searchBtnImage" class="search-btn" style="display: none; margin-top: 15px;">
+                    Find Pantone Match
+                </button>
+            </div>
+
+            <!-- Tab: HEX Code -->
+            <div id="hexTab" class="tab-content" style="display: none;">
+                <div class="input-group">
+                    <label for="hexInput">Client Color (HEX):</label>
+                    <div class="hex-input-wrapper">
+                        <input 
+                            type="text" 
+                            id="hexInput" 
+                            placeholder="#bd2c27"
+                            maxlength="7"
+                            autocomplete="off"
+                        >
+                        <div id="colorPreview" class="color-preview-small"></div>
+                    </div>
+                    <button id="searchBtnHex" class="search-btn">Find Match</button>
+                </div>
+            </div>
+            
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="useExtracted" checked>
+                    Use real extracted color from image (recommended)
+                </label>
+                <label style="margin-left: 20px;">
+                    <input type="checkbox" id="lightnessBoost" checked>
+                    Apply Rafaela Factor (+5% lightness)
+                </label>
+                <label style="margin-left: 20px;">
+                    <input type="checkbox" id="fabricMode" checked>
+                    Fabric Mode (compensates material reflection)
+                </label>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Calculating similarities...</p>
+        </div>
+
+        <div id="results" class="results-container" style="display: none;">
+            <h2>Results (sorted by similarity)</h2>
+            <div id="resultsGrid" class="results-grid"></div>
+        </div>
+
+        <div id="error" class="error-message" style="display: none;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/matcher.js') }}"></script>
+</body>
+</html>
+

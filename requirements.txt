@@ -1,0 +1,9 @@
+pandas
+requests
+pillow
+scikit-learn
+numpy
+beautifulsoup4
+lxml
+flask
+colormath

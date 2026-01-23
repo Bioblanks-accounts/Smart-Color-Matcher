@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Fabric Picker - Pantone TCX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Intelligent Fabric Picker</h1>
+            <p class="subtitle">Extração Inteligente de Cores Pantone TCX para Produção Têxtil</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Buscar por código (ex: 19-1118) ou nome (ex: Chestnut)..."
+                    autocomplete="off"
+                >
+                <button id="searchBtn">🔍 Buscar</button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <div id="colorViewer" class="color-viewer" style="display: none;">
+            <div class="color-header">
+                <h2 id="colorCode"></h2>
+                <p id="colorName" class="color-name"></p>
+            </div>
+
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <canvas id="imageCanvas"></canvas>
+                    <div id="zoomControls" class="zoom-controls">
+                        <button id="zoomIn">🔍+</button>
+                        <button id="zoomOut">🔍-</button>
+                        <button id="resetZoom">⟲</button>
+                        <span id="zoomLevel">100%</span>
+                    </div>
+                </div>
+                
+                <div class="tool-panel">
+                    <div class="tool-section">
+                        <h3>📏 Conta-Gotas de Área</h3>
+                        <label>
+                            Tamanho da amostra:
+                            <input type="range" id="sampleSize" min="5" max="50" value="15">
+                            <span id="sampleSizeValue">15x15 pixels</span>
+                        </label>
+                        <p class="help-text">
+                            Clique na imagem para extrair a cor média da área selecionada.
+                            Valores maiores ignoram mais a textura do tecido.
+                        </p>
+                    </div>
+
+                    <div class="result-section">
+                        <h3>🎯 Cor Extraída</h3>
+                        <div id="colorPreview" class="color-preview"></div>
+                        
+                        <div class="color-values">
+                            <div class="color-format">
+                                <label>RGB:</label>
+                                <span id="rgbValue" class="color-value">-</span>
+                            </div>
+                            <div class="color-format">
+                                <label>HEX:</label>
+                                <span id="hexValue" class="color-value">-</span>
+                            </div>
+                            <div class="color-format">
+                                <label>LAB:</label>
+                                <span id="labValue" class="color-value">-</span>
+                            </div>
+                            <div class="color-format">
+                                <label>CMYK:</label>
+                                <span id="cmykValue" class="color-value">-</span>
+                            </div>
+                        </div>
+
+                        <button id="copyHex" class="copy-btn">📋 Copiar HEX</button>
+                        <button id="copyLab" class="copy-btn">📋 Copiar LAB</button>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>ℹ️ Informações</h3>
+                        <p id="imageInfo" class="info-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/color-convert.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
