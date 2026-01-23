@@ -1,327 +1,327 @@
 # 🎨 Smart Color Matcher - Pantone TCX Color Matching System
 
-**Sistema inteligente de correspondência de cores Pantone TCX com extração automática de cor de imagens e matching preciso usando Delta E (CIE2000).**
+**Intelligent Pantone TCX color matching system with automatic color extraction from images and precise matching using Delta E (CIE2000).**
 
 ---
 
-## 🚀 **Nova Versão v2.0 - Atualização Completa**
+## 🚀 **New Version v2.0 - Complete Update**
 
-### 📅 **Data da Atualização:** Dezembro 2024
+### 📅 **Update Date:** December 2024
 
-Esta versão traz uma **transformação completa** da aplicação, com interface moderna, novas funcionalidades avançadas e correções importantes.
-
----
-
-## 🎯 **O que é este Projeto?**
-
-Este projeto é uma **aplicação web completa** que permite:
-
-1. **📷 Upload de Imagens**: Faça upload de imagens de tecidos/materiais e extraia automaticamente a cor dominante
-2. **🎨 Busca por HEX**: Digite um código hexadecimal e encontre a cor Pantone mais similar
-3. **🔬 Matching Preciso**: Usa algoritmo Delta E (CIE2000) para encontrar correspondências exatas
-4. **🧵 Modo Tecido**: Compensação automática para cores em materiais (reflexão e textura)
-5. **📊 Banco de Dados**: Acesso completo ao banco de dados Pantone TCX
+This version brings a **complete transformation** of the application, with a modern interface, new advanced features, and important fixes.
 
 ---
 
-## ✨ **Principais Mudanças da Versão 2.0**
+## 🎯 **What is this Project?**
 
-### 🎨 **1. Interface Moderna e Estilizada**
+This project is a **complete web application** that allows:
 
-#### **Componente de Upload de Imagem Moderno**
-- ✅ **Design inspirado em React/Shadcn**: Interface limpa e profissional
-- ✅ **Ícones SVG inline**: ImagePlus, Upload, Trash2, X (sem dependências externas)
-- ✅ **Drag & Drop**: Arraste e solte imagens diretamente na área de upload
-- ✅ **Preview Interativo**: 
-  - Hover overlay com botões de ação
-  - Zoom suave na imagem (scale 1.05)
-  - Animações fluidas e transições suaves
-- ✅ **Barra de Informações**: Exibe nome do arquivo com botão de remoção
-- ✅ **Card de Cor Extraída**: Visualização elegante da cor dominante extraída
+1. **📷 Image Upload**: Upload fabric/material images and automatically extract the dominant color
+2. **🎨 HEX Search**: Enter a hexadecimal code and find the most similar Pantone color
+3. **🔬 Precise Matching**: Uses Delta E (CIE2000) algorithm to find exact matches
+4. **🧵 Fabric Mode**: Automatic compensation for colors on materials (reflection and texture)
+5. **📊 Database**: Full access to Pantone TCX database
 
-#### **Design System BIOBLANKS**
-- ✅ **Cores Principais**: Laranja (#ff9533) como cor primária
-- ✅ **Fundo Neutro**: Cinza claro (#f5f5f5) para melhor legibilidade
-- ✅ **Logo BIOBLANKS**: Integrado no header
-- ✅ **Tipografia Limpa**: Sem emojis excessivos, foco na funcionalidade
+---
 
-### 🐛 **2. Correções Críticas de Bugs**
+## ✨ **Main Changes in Version 2.0**
 
-#### **Bug #000000 - Extração de Cor Quebrada** ✅ CORRIGIDO
-- **Problema**: Aplicação retornava `#000000` (preto) ao extrair cor de imagens
-- **Causa**: Uso incorreto de `ColorConverter` que não existia no código
-- **Solução**: Implementação correta usando `colormath` para conversões LAB ↔ RGB ↔ HEX
-- **Resultado**: Extração de cor funcionando perfeitamente
+### 🎨 **1. Modern and Styled Interface**
 
-#### **Fabric Mode - Compensação de Reflexão** ✅ IMPLEMENTADO
-- **Problema**: Cores em tecidos aparecem mais claras que referências Pantone
-- **Solução**: Modo Tecido que aplica compensação automática:
-  - **-12% Lightness**: Escurece a cor extraída
-  - **-2% Saturation**: Reduz levemente a saturação
-- **Resultado**: Matching mais preciso para aplicações em tecidos
+#### **Modern Image Upload Component**
+- ✅ **React/Shadcn-inspired design**: Clean and professional interface
+- ✅ **Inline SVG icons**: ImagePlus, Upload, Trash2, X (no external dependencies)
+- ✅ **Drag & Drop**: Drag and drop images directly into the upload area
+- ✅ **Interactive Preview**: 
+  - Hover overlay with action buttons
+  - Smooth image zoom (scale 1.05)
+  - Fluid animations and smooth transitions
+- ✅ **Information Bar**: Displays file name with remove button
+- ✅ **Extracted Color Card**: Elegant visualization of extracted dominant color
 
-### 🌐 **3. Internacionalização Completa**
+#### **BIOBLANKS Design System**
+- ✅ **Primary Colors**: Orange (#ff9533) as primary color
+- ✅ **Neutral Background**: Light gray (#f5f5f5) for better readability
+- ✅ **BIOBLANKS Logo**: Integrated in header
+- ✅ **Clean Typography**: No excessive emojis, focus on functionality
 
-- ✅ **Tradução Total**: Toda aplicação traduzida para inglês
-- ✅ **Mensagens de Erro**: Todas em inglês
-- ✅ **Interface Limpa**: Textos profissionais sem emojis desnecessários
-- ✅ **Labels e Botões**: Consistência em todo o sistema
+### 🐛 **2. Critical Bug Fixes**
 
-### 🔧 **4. Funcionalidades Avançadas**
+#### **Bug #000000 - Broken Color Extraction** ✅ FIXED
+- **Problem**: Application returned `#000000` (black) when extracting color from images
+- **Cause**: Incorrect use of `ColorConverter` that didn't exist in the code
+- **Solution**: Correct implementation using `colormath` for LAB ↔ RGB ↔ HEX conversions
+- **Result**: Color extraction working perfectly
 
-#### **K-Means Clustering para Extração de Cor**
-- ✅ Algoritmo K-Means para identificar cor dominante
-- ✅ Filtragem de fundos brancos e sombras muito escuras
-- ✅ Extração precisa mesmo em imagens complexas
+#### **Fabric Mode - Reflection Compensation** ✅ IMPLEMENTED
+- **Problem**: Colors on fabrics appear lighter than Pantone references
+- **Solution**: Fabric Mode that applies automatic compensation:
+  - **-12% Lightness**: Darkens the extracted color
+  - **-2% Saturation**: Slightly reduces saturation
+- **Result**: More accurate matching for fabric applications
+
+### 🌐 **3. Complete Internationalization**
+
+- ✅ **Full Translation**: Entire application translated to English
+- ✅ **Error Messages**: All in English
+- ✅ **Clean Interface**: Professional texts without unnecessary emojis
+- ✅ **Labels and Buttons**: Consistency throughout the system
+
+### 🔧 **4. Advanced Features**
+
+#### **K-Means Clustering for Color Extraction**
+- ✅ K-Means algorithm to identify dominant color
+- ✅ Filters white backgrounds and very dark shadows
+- ✅ Precise extraction even in complex images
 
 #### **Delta E (CIE2000) Matching**
-- ✅ Algoritmo mais preciso para diferença perceptiva de cores
-- ✅ Ordenação por similaridade (menor Delta E = mais similar)
-- ✅ Suporte a múltiplos resultados (configurável)
+- ✅ Most accurate algorithm for perceptual color difference
+- ✅ Ordered by similarity (lower Delta E = more similar)
+- ✅ Support for multiple results (configurable)
 
 #### **Rafaela Factor**
-- ✅ Opção de boost de lightness (+5%)
-- ✅ Útil para ajustes finos em cores específicas
+- ✅ Lightness boost option (+5%)
+- ✅ Useful for fine adjustments in specific colors
 
-### 📱 **5. Responsividade e UX**
+### 📱 **5. Responsiveness and UX**
 
-- ✅ **Mobile-First**: Design responsivo para todos os dispositivos
-- ✅ **Animações Suaves**: Transições e hover effects profissionais
-- ✅ **Feedback Visual**: Loading states, hover effects, estados de erro
-- ✅ **Acessibilidade**: Contraste adequado e navegação intuitiva
+- ✅ **Mobile-First**: Responsive design for all devices
+- ✅ **Smooth Animations**: Professional transitions and hover effects
+- ✅ **Visual Feedback**: Loading states, hover effects, error states
+- ✅ **Accessibility**: Adequate contrast and intuitive navigation
 
 ---
 
-## 📦 **Estrutura do Projeto**
+## 📦 **Project Structure**
 
 ```
 plugin-pantone/
-├── 📱 Aplicação Web Flask
-│   ├── matcher_app.py          # Servidor Flask principal
-│   ├── color_matcher.py        # Lógica de matching e extração
+├── 📱 Flask Web Application
+│   ├── matcher_app.py          # Main Flask server
+│   ├── color_matcher.py        # Matching and extraction logic
 │   ├── templates/
-│   │   └── matcher.html        # Interface moderna
+│   │   └── matcher.html        # Modern interface
 │   └── static/
-│       ├── css/matcher.css     # Estilos modernos
-│       └── js/matcher.js        # Interatividade
+│       ├── css/matcher.css     # Modern styles
+│       └── js/matcher.js        # Interactivity
 │
-├── 📄 Versão Estática (GitHub Pages)
+├── 📄 Static Version (GitHub Pages)
 │   └── docs/
-│       ├── index.html          # Versão free (sem backend)
-│       └── static/             # Assets estáticos
+│       ├── index.html          # Free version (no backend)
+│       └── static/             # Static assets
 │
-└── 🛠️ Scripts de Processamento
-    ├── generate_visual_db.py   # Extrator de imagens Pantone
-    ├── create_database.py      # Criar banco de dados
-    └── requirements.txt        # Dependências Python
+└── 🛠️ Processing Scripts
+    ├── generate_visual_db.py   # Pantone image extractor
+    ├── create_database.py      # Create database
+    └── requirements.txt        # Python dependencies
 ```
 
 ---
 
-## 🚀 **Como Usar a Aplicação Web**
+## 🚀 **How to Use the Web Application**
 
-### **Opção 1: Versão Flask (Recomendada - Funcionalidades Completas)**
+### **Option 1: Flask Version (Recommended - Full Features)**
 
 ```bash
-# 1. Instalar dependências
+# 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Iniciar servidor
+# 2. Start server
 python3 matcher_app.py
 
-# 3. Acessar no navegador
+# 3. Access in browser
 # http://localhost:5001
 ```
 
-**Funcionalidades disponíveis:**
-- ✅ Upload de imagens
-- ✅ Extração automática de cor
-- ✅ Busca por HEX
+**Available features:**
+- ✅ Image upload
+- ✅ Automatic color extraction
+- ✅ HEX search
 - ✅ Fabric Mode
 - ✅ Rafaela Factor
-- ✅ Múltiplos resultados
+- ✅ Multiple results
 
-### **Opção 2: Versão Estática (GitHub Pages)**
+### **Option 2: Static Version (GitHub Pages)**
 
-Acesse: `https://bioblanks-accounts.github.io/Smart-Color-Matcher/`
+Access: `https://bioblanks-accounts.github.io/Smart-Color-Matcher/`
 
-**Funcionalidades disponíveis:**
-- ✅ Busca por HEX
-- ✅ Matching com Delta E
-- ⚠️ Upload de imagem (requer backend)
-
----
-
-## 🎯 **Funcionalidades Detalhadas**
-
-### **1. Upload e Extração de Cor de Imagens**
-
-1. **Upload de Imagem**:
-   - Clique na área de upload ou arraste uma imagem
-   - Formatos suportados: PNG, JPG, JPEG, GIF, WEBP
-   - Tamanho máximo: 16MB
-
-2. **Extração Automática**:
-   - Algoritmo K-Means identifica cor dominante
-   - Filtra fundos brancos e sombras
-   - Exibe cor extraída em HEX
-
-3. **Fabric Mode** (Opcional):
-   - Compensa reflexão de tecidos
-   - Ajusta lightness (-12%) e saturação (-2%)
-   - Resultado: Matching mais preciso para materiais
-
-### **2. Busca por Código HEX**
-
-1. Digite código HEX (ex: `#bd2c27`)
-2. Preview da cor ao lado
-3. Clique em "Find Match"
-4. Veja resultados ordenados por similaridade
-
-### **3. Resultados e Matching**
-
-- **Delta E Score**: Quanto menor, mais similar
-- **Visualização**: Card com cor Pantone, nome e código
-- **Múltiplos Resultados**: Top 5, 10, 20 (configurável)
-- **Informações Completas**: HEX, RGB, nome Pantone
+**Available features:**
+- ✅ HEX search
+- ✅ Delta E matching
+- ⚠️ Image upload (requires backend)
 
 ---
 
-## 🔬 **Algoritmos e Tecnologias**
+## 🎯 **Detailed Features**
+
+### **1. Image Upload and Color Extraction**
+
+1. **Image Upload**:
+   - Click upload area or drag an image
+   - Supported formats: PNG, JPG, JPEG, GIF, WEBP
+   - Maximum size: 16MB
+
+2. **Automatic Extraction**:
+   - K-Means algorithm identifies dominant color
+   - Filters white backgrounds and shadows
+   - Displays extracted color in HEX
+
+3. **Fabric Mode** (Optional):
+   - Compensates fabric reflection
+   - Adjusts lightness (-12%) and saturation (-2%)
+   - Result: More accurate matching for materials
+
+### **2. HEX Code Search**
+
+1. Enter HEX code (ex: `#bd2c27`)
+2. Color preview on the side
+3. Click "Find Match"
+4. See results ordered by similarity
+
+### **3. Results and Matching**
+
+- **Delta E Score**: Lower is more similar
+- **Visualization**: Card with Pantone color, name and code
+- **Multiple Results**: Top 5, 10, 20 (configurable)
+- **Complete Information**: HEX, RGB, Pantone name
+
+---
+
+## 🔬 **Algorithms and Technologies**
 
 ### **K-Means Clustering**
-- Identifica clusters de cores na imagem
-- Filtra ruídos (branco, preto extremo)
-- Retorna cor dominante mais representativa
+- Identifies color clusters in the image
+- Filters noise (white, extreme black)
+- Returns most representative dominant color
 
 ### **Delta E (CIE2000)**
-- Algoritmo mais preciso para diferença perceptiva
-- Considera percepção humana de cor
-- Padrão da indústria para matching de cores
+- Most accurate algorithm for perceptual difference
+- Considers human color perception
+- Industry standard for color matching
 
-### **Conversões de Espaço de Cor**
+### **Color Space Conversions**
 - HEX ↔ RGB ↔ LAB
-- Usa biblioteca `colormath` para precisão
-- Suporte a diferentes iluminantes (D65 padrão)
+- Uses `colormath` library for precision
+- Support for different illuminants (D65 default)
 
 ---
 
-## 📊 **Comparação: Versão Anterior vs Nova Versão**
+## 📊 **Comparison: Previous Version vs New Version**
 
-| Recurso | Versão Anterior | Nova Versão 2.0 |
+| Feature | Previous Version | New Version 2.0 |
 |---------|----------------|-----------------|
-| **Interface** | Básica | Moderna e estilizada |
-| **Upload de Imagem** | Simples | Componente moderno com drag & drop |
-| **Extração de Cor** | ❌ Bug #000000 | ✅ Funcionando perfeitamente |
-| **Fabric Mode** | ❌ Não existia | ✅ Implementado |
-| **Ícones** | Emojis | SVG inline profissionais |
-| **Idioma** | Português | Inglês |
-| **Design** | Básico | Sistema de design BIOBLANKS |
-| **Animações** | Nenhuma | Suaves e profissionais |
-| **Responsivo** | Parcial | Totalmente responsivo |
+| **Interface** | Basic | Modern and styled |
+| **Image Upload** | Simple | Modern component with drag & drop |
+| **Color Extraction** | ❌ Bug #000000 | ✅ Working perfectly |
+| **Fabric Mode** | ❌ Didn't exist | ✅ Implemented |
+| **Icons** | Emojis | Professional inline SVG |
+| **Language** | Portuguese | English |
+| **Design** | Basic | BIOBLANKS design system |
+| **Animations** | None | Smooth and professional |
+| **Responsive** | Partial | Fully responsive |
 
 ---
 
-## 🐛 **Bugs Corrigidos**
+## 🐛 **Fixed Bugs**
 
-### **1. Bug #000000 - Extração de Cor**
-- **Status**: ✅ CORRIGIDO
-- **Descrição**: Aplicação retornava preto ao extrair cor
-- **Solução**: Correção de conversões LAB usando `colormath`
+### **1. Bug #000000 - Color Extraction**
+- **Status**: ✅ FIXED
+- **Description**: Application returned black when extracting color
+- **Solution**: Fixed LAB conversions using `colormath`
 
-### **2. ColorConverter Não Existia**
-- **Status**: ✅ CORRIGIDO
-- **Descrição**: Erro `ImportError: cannot import name 'ColorConverter'`
-- **Solução**: Substituído por conversões diretas com `colormath`
+### **2. ColorConverter Didn't Exist**
+- **Status**: ✅ FIXED
+- **Description**: Error `ImportError: cannot import name 'ColorConverter'`
+- **Solution**: Replaced with direct conversions using `colormath`
 
-### **3. Fabric Mode Não Funcionava**
-- **Status**: ✅ IMPLEMENTADO
-- **Descrição**: Compensação de reflexão não estava funcionando
-- **Solução**: Implementação completa com ajustes de lightness e saturação
+### **3. Fabric Mode Didn't Work**
+- **Status**: ✅ IMPLEMENTED
+- **Description**: Reflection compensation wasn't working
+- **Solution**: Complete implementation with lightness and saturation adjustments
 
 ---
 
 ## 🎨 **Design System**
 
-### **Cores**
-- **Primária**: `#ff9533` (Laranja BIOBLANKS)
-- **Fundo**: `#f5f5f5` (Cinza claro neutro)
-- **Cards**: `#fafafa` (Branco suave)
-- **Bordas**: `#e5e5e5` (Cinza claro)
-- **Texto**: `#1a1a1a` (Quase preto)
-- **Secundário**: `#666` (Cinza médio)
-- **Perigo**: `#ef4444` (Vermelho para ações destrutivas)
+### **Colors**
+- **Primary**: `#ff9533` (BIOBLANKS Orange)
+- **Background**: `#f5f5f5` (Light neutral gray)
+- **Cards**: `#fafafa` (Soft white)
+- **Borders**: `#e5e5e5` (Light gray)
+- **Text**: `#1a1a1a` (Almost black)
+- **Secondary**: `#666` (Medium gray)
+- **Danger**: `#ef4444` (Red for destructive actions)
 
-### **Tipografia**
-- **Fonte**: System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, etc.)
-- **Títulos**: Bold, 2.5em
-- **Corpo**: Regular, 1em
-- **Monospace**: Courier New (para códigos HEX)
+### **Typography**
+- **Font**: System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, etc.)
+- **Titles**: Bold, 2.5em
+- **Body**: Regular, 1em
+- **Monospace**: Courier New (for HEX codes)
 
-### **Componentes**
-- **Botões**: Bordas arredondadas (10px), sombras suaves
-- **Cards**: Bordas arredondadas (12px), sombras leves
-- **Inputs**: Bordas arredondadas (10px), focus states
+### **Components**
+- **Buttons**: Rounded borders (10px), soft shadows
+- **Cards**: Rounded borders (12px), light shadows
+- **Inputs**: Rounded borders (10px), focus states
 
 ---
 
-## 📝 **Changelog Completo**
+## 📝 **Complete Changelog**
 
-### **v2.0.0 - Dezembro 2024**
+### **v2.0.0 - December 2024**
 
-#### **✨ Novas Funcionalidades**
-- Componente moderno de upload de imagem com drag & drop
-- Ícones SVG inline (ImagePlus, Upload, Trash2, X)
-- Fabric Mode (compensação de reflexão para tecidos)
-- Preview interativo com hover overlay
-- Barra de informações do arquivo
-- Card de cor extraída estilizado
-- Animações e transições suaves
-- Design system BIOBLANKS completo
+#### **✨ New Features**
+- Modern image upload component with drag & drop
+- Inline SVG icons (ImagePlus, Upload, Trash2, X)
+- Fabric Mode (reflection compensation for fabrics)
+- Interactive preview with hover overlay
+- File information bar
+- Styled extracted color card
+- Smooth animations and transitions
+- Complete BIOBLANKS design system
 
-#### **🐛 Correções**
-- Corrigido bug #000000 na extração de cor
-- Corrigido erro ColorConverter não existe
-- Implementado Fabric Mode funcional
-- Corrigidas conversões LAB ↔ RGB ↔ HEX
+#### **🐛 Fixes**
+- Fixed bug #000000 in color extraction
+- Fixed ColorConverter doesn't exist error
+- Implemented functional Fabric Mode
+- Fixed LAB ↔ RGB ↔ HEX conversions
 
-#### **🌐 Internacionalização**
-- Tradução completa para inglês
-- Mensagens de erro em inglês
-- Interface limpa sem emojis excessivos
+#### **🌐 Internationalization**
+- Complete translation to English
+- Error messages in English
+- Clean interface without excessive emojis
 
 #### **🎨 Design**
-- Cores BIOBLANKS (#ff9533)
-- Fundo neutro (#f5f5f5)
-- Logo BIOBLANKS no header
-- Layout moderno e responsivo
+- BIOBLANKS colors (#ff9533)
+- Neutral background (#f5f5f5)
+- BIOBLANKS logo in header
+- Modern and responsive layout
 
 #### **📱 UX/UI**
-- Responsividade completa
-- Animações suaves
-- Feedback visual melhorado
-- Estados de loading e erro
+- Complete responsiveness
+- Smooth animations
+- Improved visual feedback
+- Loading and error states
 
 ---
 
-## 🛠️ **Tecnologias Utilizadas**
+## 🛠️ **Technologies Used**
 
 - **Backend**: Python 3.x, Flask
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Processamento de Imagem**: PIL/Pillow, NumPy, scikit-learn (K-Means)
-- **Cores**: colormath (conversões LAB, Delta E)
-- **Banco de Dados**: JSON (pantone_data.json)
+- **Image Processing**: PIL/Pillow, NumPy, scikit-learn (K-Means)
+- **Colors**: colormath (LAB conversions, Delta E)
+- **Database**: JSON (pantone_data.json)
 
 ---
 
-## 📋 **Pré-requisitos**
+## 📋 **Prerequisites**
 
 ```bash
 # Python 3.7+
 pip install -r requirements.txt
 ```
 
-**Dependências principais:**
+**Main dependencies:**
 - Flask
 - Pillow (PIL)
 - NumPy
@@ -332,119 +332,119 @@ pip install -r requirements.txt
 
 ## 🚀 **Deploy**
 
-### **GitHub Pages (Versão Estática)**
-A versão em `docs/` está configurada para GitHub Pages e já está disponível.
+### **GitHub Pages (Static Version)**
+The version in `docs/` is configured for GitHub Pages and is already available.
 
-### **Flask (Produção)**
+### **Flask (Production)**
 ```bash
-# Usar gunicorn para produção
+# Use gunicorn for production
 pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:5001 matcher_app:app
 ```
 
 ---
 
-## 📄 **Licença**
+## 📄 **License**
 
-Este projeto é para uso pessoal/profissional da BIOBLANKS.
-
----
-
-## 🤝 **Contribuições**
-
-Sugestões e melhorias são bem-vindas! Se encontrar problemas ou tiver ideias, sinta-se à vontade para contribuir.
+This project is for personal/professional use by BIOBLANKS.
 
 ---
 
-## 📞 **Suporte**
+## 🤝 **Contributions**
 
-Para questões ou problemas, abra uma issue no repositório GitHub.
-
----
-
-## 🎯 **Próximos Passos (Roadmap)**
-
-- [ ] Suporte a múltiplas imagens simultâneas
-- [ ] Histórico de buscas
-- [ ] Exportação de resultados (PDF, CSV)
-- [ ] API REST para integração
-- [ ] Modo escuro/claro
-- [ ] Mais opções de compensação de cor
+Suggestions and improvements are welcome! If you find issues or have ideas, feel free to contribute.
 
 ---
 
+## 📞 **Support**
+
+For questions or issues, open an issue in the GitHub repository.
+
 ---
 
-## 📖 **Documentação Adicional**
+## 🎯 **Next Steps (Roadmap)**
 
-### **Extrator de Imagens Pantone TCX em Alta Resolução**
+- [ ] Support for multiple simultaneous images
+- [ ] Search history
+- [ ] Results export (PDF, CSV)
+- [ ] REST API for integration
+- [ ] Dark/light mode
+- [ ] More color compensation options
 
-Este projeto também inclui scripts para baixar imagens em alta resolução das cores Pantone Fashion, Home + Interiors (TCX - Cotton) do site Columbia Omni Studio. As imagens capturam a textura do tecido e são essenciais para garantir fidelidade de cor na produção têxtil.
+---
 
-## 🎯 Objetivo
+---
 
-Extrair imagens de referência visual em alta resolução dos "Smart Color Swatch Cards" Pantone, que mostram:
-- A textura do algodão
-- As sombras das tramas do tecido
-- Como a cor reage à iluminação real
+## 📖 **Additional Documentation**
 
-Essas imagens são muito mais precisas para referência de produção do que apenas códigos HEX/RGB digitais.
+### **High-Resolution Pantone TCX Image Extractor**
 
-## 📋 Pré-requisitos
+This project also includes scripts to download high-resolution images of Pantone Fashion, Home + Interiors (TCX - Cotton) colors from the Columbia Omni Studio website. The images capture fabric texture and are essential to ensure color fidelity in textile production.
+
+## 🎯 Objective
+
+Extract high-resolution visual reference images from Pantone "Smart Color Swatch Cards", which show:
+- Cotton texture
+- Fabric weave shadows
+- How color reacts to real lighting
+
+These images are much more accurate for production reference than just digital HEX/RGB codes.
+
+## 📋 Prerequisites
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 📁 Estrutura de Arquivos
+## 📁 File Structure
 
-- `generate_visual_db.py` - Script principal para processar o CSV e baixar imagens
-- `test_single_image.py` - Script de teste para validar uma única imagem
-- `debug_scraper.py` - Ferramenta de debug para buscar URLs
-- `pantone_images/` - Pasta onde as imagens serão salvas (criada automaticamente)
-- `pantone_visual_db.json` - Arquivo JSON com metadados das imagens baixadas
+- `generate_visual_db.py` - Main script to process CSV and download images
+- `test_single_image.py` - Test script to validate a single image
+- `debug_scraper.py` - Debug tool to search URLs
+- `pantone_images/` - Folder where images will be saved (created automatically)
+- `pantone_visual_db.json` - JSON file with metadata of downloaded images
 
-## 🚀 Uso
+## 🚀 Usage
 
-### Processar arquivo CSV completo
+### Process complete CSV file
 
 ```bash
 python generate_visual_db.py minha_tabela.csv
 ```
 
-O script vai:
-1. Ler o arquivo CSV
-2. Buscar cada código Pantone no site Columbia Omni Studio
-3. Encontrar a URL da imagem em alta resolução (zoom)
-4. Baixar e salvar a imagem na pasta `pantone_images/`
-5. Salvar metadados em `pantone_visual_db.json`
+The script will:
+1. Read the CSV file
+2. Search each Pantone code on Columbia Omni Studio website
+3. Find the high-resolution image URL (zoom)
+4. Download and save the image in `pantone_images/` folder
+5. Save metadata in `pantone_visual_db.json`
 
-### Testar uma única imagem
+### Test a single image
 
-Antes de processar toda a lista, você pode testar com uma cor específica:
+Before processing the entire list, you can test with a specific color:
 
 ```bash
 python test_single_image.py "19-1663 TCX" "Ribbon Red"
 ```
 
-Isso vai baixar apenas essa imagem e você pode verificar se a qualidade está adequada.
+This will download only that image and you can verify if the quality is adequate.
 
-### Opções adicionais
+### Additional options
 
 ```bash
-# Também extrair e salvar a cor HEX dominante (opcional)
+# Also extract and save the dominant HEX color (optional)
 python generate_visual_db.py minha_tabela.csv --extract-hex
 ```
 
-## 📊 Formato do CSV
+## 📊 CSV Format
 
-O CSV deve ter pelo menos uma coluna com os códigos Pantone. Colunas reconhecidas automaticamente:
+The CSV must have at least one column with Pantone codes. Automatically recognized columns:
 
-- **Código**: Coluna com "TCX" ou "CODE" no nome (ex: "TCX CODE")
-- **Nome**: Coluna chamada "NAME" (opcional)
-- **Link**: Coluna com "LINK" ou "URL" no nome (opcional, se já tiver URLs)
+- **Code**: Column with "TCX" or "CODE" in the name (ex: "TCX CODE")
+- **Name**: Column named "NAME" (optional)
+- **Link**: Column with "LINK" or "URL" in the name (optional, if you already have URLs)
 
-Exemplo:
+Example:
 ```csv
 TCX CODE,NAME,HEX
 11-0103 TCX,Egret,
@@ -452,20 +452,20 @@ TCX CODE,NAME,HEX
 19-1663 TCX,Ribbon Red,
 ```
 
-## 📸 Formato das Imagens Baixadas
+## 📸 Downloaded Image Format
 
-As imagens são salvas com o formato:
+Images are saved with the format:
 ```
-CODIGO_PANTONE_Nome_Cor.jpg
+PANTONE_CODE_Color_Name.jpg
 ```
 
-Exemplo: `19-1663_TCX_Ribbon_Red.jpg`
+Example: `19-1663_TCX_Ribbon_Red.jpg`
 
-Todas as imagens são salvas na pasta `pantone_images/` em alta resolução (geralmente 1024x1024px ou 2048x2048px, dependendo do que estiver disponível no site).
+All images are saved in the `pantone_images/` folder in high resolution (usually 1024x1024px or 2048x2048px, depending on what's available on the website).
 
-## 💾 Metadados (JSON)
+## 💾 Metadata (JSON)
 
-O arquivo `pantone_visual_db.json` contém informações sobre cada cor processada:
+The `pantone_visual_db.json` file contains information about each processed color:
 
 ```json
 {
@@ -473,67 +473,66 @@ O arquivo `pantone_visual_db.json` contém informações sobre cada cor processa
         "name": "Ribbon Red",
         "imageSaved": true,
         "imagePath": "pantone_images/19-1663_TCX_Ribbon_Red.jpg",
-        "originalLink": "https://columbiaomnistudio.com/.../imagem_2048x2048.jpg",
-        "visualHex": "#a12345"  // Se --extract-hex foi usado
+        "originalLink": "https://columbiaomnistudio.com/.../image_2048x2048.jpg",
+        "visualHex": "#a12345"  // If --extract-hex was used
     }
 }
 ```
 
-## ⚙️ Funcionalidades
+## ⚙️ Features
 
-### ✅ Recursos Implementados
+### ✅ Implemented Features
 
-- ✅ Busca automática de URLs de alta resolução no Shopify
-- ✅ Download e salvamento de imagens em alta qualidade
-- ✅ Nomenclatura automática baseada no código Pantone
-- ✅ Resumo de processamento (salva progresso a cada 10 itens)
-- ✅ Detecção automática de colunas no CSV
-- ✅ Tratamento de erros e retomada de processamento
-- ✅ Rate limiting para evitar bloqueios do servidor
+- ✅ Automatic search for high-resolution URLs on Shopify
+- ✅ Download and save images in high quality
+- ✅ Automatic naming based on Pantone code
+- ✅ Processing summary (saves progress every 10 items)
+- ✅ Automatic column detection in CSV
+- ✅ Error handling and processing resumption
+- ✅ Rate limiting to avoid server blocks
 
-### 🔍 Como Funciona a Busca de Alta Resolução
+### 🔍 How High-Resolution Search Works
 
-O script utiliza múltiplas estratégias para encontrar a imagem em maior resolução:
+The script uses multiple strategies to find the image in higher resolution:
 
-1. **Busca por padrões Shopify**: Procura por URLs com padrões como `_2048x2048`, `_1024x1024`, `_master`, `_zoom`
-2. **Análise de tags img**: Verifica todas as tags `<img>` e seus atributos `srcset` para encontrar a maior resolução
-3. **Modificação de og:image**: Se necessário, tenta modificar a URL da meta tag og:image para versões de alta resolução
+1. **Shopify pattern search**: Searches for URLs with patterns like `_2048x2048`, `_1024x1024`, `_master`, `_zoom`
+2. **img tag analysis**: Checks all `<img>` tags and their `srcset` attributes to find the highest resolution
+3. **og:image modification**: If necessary, tries to modify the og:image meta tag URL for high-resolution versions
 
 ## 🛠️ Troubleshooting
 
-### Imagem não encontrada
+### Image not found
 
-Se uma imagem não for encontrada, o script continuará processando as demais. Você pode:
-- Verificar se o código Pantone está correto no CSV
-- Testar manualmente no site: `https://columbiaomnistudio.com/search?q=CODIGO`
-- Re-executar o script (ele pula imagens já baixadas)
+If an image is not found, the script will continue processing the others. You can:
+- Verify if the Pantone code is correct in the CSV
+- Test manually on the website: `https://columbiaomnistudio.com/search?q=CODE`
+- Re-run the script (it skips already downloaded images)
 
-### Qualidade da imagem insuficiente
+### Insufficient image quality
 
-Se a imagem baixada não estiver em alta resolução suficiente:
-- Verifique manualmente a URL original no site
-- O site pode ter mudado a estrutura
-- Algumas cores podem não ter versão zoom disponível
+If the downloaded image is not in sufficient high resolution:
+- Check the original URL manually on the website
+- The website may have changed structure
+- Some colors may not have zoom version available
 
-### Erro de conexão
+### Connection error
 
-O script inclui delays entre requisições para evitar bloqueios. Se ainda assim houver problemas:
-- Verifique sua conexão com a internet
-- Tente aumentar os delays no código (variável `time.sleep()`)
-- Execute novamente (o script resume de onde parou)
+The script includes delays between requests to avoid blocks. If you still have problems:
+- Check your internet connection
+- Try increasing delays in the code (`time.sleep()` variable)
+- Run again (the script resumes from where it stopped)
 
-## 📝 Notas Importantes
+## 📝 Important Notes
 
-- ⚠️ **Rate Limiting**: O script inclui delays de 1 segundo entre requisições para ser respeitoso com o servidor
-- 📦 **Progresso**: O progresso é salvo a cada 10 itens processados, então você pode interromper e continuar depois
-- 🔄 **Retomada**: Se executar novamente, o script automaticamente pula cores já processadas
-- 💾 **Espaço em disco**: Certifique-se de ter espaço suficiente (cada imagem pode ter 1-5MB)
+- ⚠️ **Rate Limiting**: The script includes 1 second delays between requests to be respectful to the server
+- 📦 **Progress**: Progress is saved every 10 processed items, so you can interrupt and continue later
+- 🔄 **Resumption**: If you run again, the script automatically skips already processed colors
+- 💾 **Disk space**: Make sure you have enough space (each image can be 1-5MB)
 
-## 📄 Licença
+## 📄 License
 
-Este projeto é para uso pessoal/profissional. Respeite os termos de uso do site Columbia Omni Studio ao utilizar este script.
+This project is for personal/professional use. Respect the terms of use of the Columbia Omni Studio website when using this script.
 
-## 🤝 Contribuições
+## 🤝 Contributions
 
-Sugestões e melhorias são bem-vindas! Se encontrar problemas ou tiver ideias, sinta-se à vontade para contribuir.
-
+Suggestions and improvements are welcome! If you find issues or have ideas, feel free to contribute.
