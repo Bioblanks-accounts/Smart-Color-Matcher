@@ -90,34 +90,27 @@ if (hexInput) {
 
 // ========== IMAGE UPLOAD MODE ==========
 if (uploadArea) {
-    const dropzone = uploadArea.querySelector('.upload-dropzone');
-    
     // Click to select file
     uploadArea.addEventListener('click', () => {
         if (imageInput) imageInput.click();
     });
-    
-    // Drag and drop
-    uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        if (dropzone) dropzone.classList.add('dragover');
-    });
-    
-    uploadArea.addEventListener('dragleave', (e) => {
-        e.preventDefault();
-        if (dropzone) dropzone.classList.remove('dragover');
-    });
-    
-    uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        if (dropzone) dropzone.classList.remove('dragover');
-        
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            handleImageFile(files[0]);
-        }
-    });
 }
+
+// Paste image (e.g. from Figma "Copy as PNG")
+document.addEventListener('paste', (e) => {
+    const tab = document.getElementById('imageTab');
+    if (!tab || tab.style.display === 'none') return;
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1) {
+            e.preventDefault();
+            const file = items[i].getAsFile();
+            if (file) handleImageFile(file);
+            return;
+        }
+    }
+});
 
 if (imageInput) {
     imageInput.addEventListener('change', (e) => {
